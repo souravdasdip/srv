@@ -26,7 +26,7 @@ export const FeatureTitle = ({
     <p
       ref={ref}
       className={classNames(
-        'text-5xl font-heading py-16 font-bold transition-colors',
+        'feature-title text-5xl font-heading py-16 font-bold transition-colors',
         isinView ? 'text-black' : 'text-gray-300'
       )}
     >
