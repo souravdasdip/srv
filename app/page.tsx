@@ -88,6 +88,20 @@ export default function Home() {
         }, {
           at: "<"
         }
+      ],[
+        '.active-card .show-me-btn',{
+          opacity: 0,
+        },{
+          at: '<'
+        }
+      ],[
+        '.back-to-site-btn',{
+          opacity: 1,
+          y: '0px'
+        },{
+          at: '<',
+          duration: .3
+        }
       ]
     ])
     }else{
@@ -113,9 +127,21 @@ export default function Home() {
         }, {
           at: "<"
         }
+      ],[
+        '.back-to-site-btn',{
+          opacity: 0,
+          y: '300px'
+        },{
+          at: '<',
+          duration: .3
+        }
+      ],[
+        '.active-card .show-me-btn',{
+          opacity: 1,
+        }
       ]])
     }
-  }, [animate,fullScreenFeature])
+  }, [animate,fullScreenFeature, lastfullScreenFeature])
 
   return (
     <main className="px-4 mx-auto max-w-6xl">
@@ -126,7 +152,7 @@ export default function Home() {
       {features.map(feature => <feature.visual id={feature.id} key={feature.id}/>)}
 
       {/* Back to site button */}
-      <button onClick={() => setFullScreenFeature(null)} className={classNames('fixed bottom-6 left-1/2 z-10 -translate-x-1/2', fullScreenFeature ? 'block' : 'hidden')}>Back to site</button>
+      <button onClick={() => setFullScreenFeature(null)} className={classNames('back-to-site-btn bg-black text-white px-4 opacity-0 py-2 rounded-full shadow-lg translate-y-[300%] fixed bottom-6 left-1/2 z-10 -translate-x-1/2', fullScreenFeature ? 'block' : 'hidden')}>Back to site</button>
 
       {/* List all of works */}
       <div className="w-full flex gap-20 items-start">
